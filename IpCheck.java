@@ -47,9 +47,6 @@ public class IpCheck {
 
 	// 与えられたIPアドレスとサブネットマスクを使用して、ブロードキャストアドレスを計算
 	public static String getBroadcastAddress(String ip, String mask) {
-
-		// "0xは16進数のプレフィックス。0xFFFFFFFFLは、32ビットのすべてのビットが1であることを示す"
-		// "~はビットNOT(反転)"
 		return longToIp(ipToLong(ip) | (~ipToLong(mask) & ~ipToLong(mask) & 0xFFFFFFFFL));
 	}
 
